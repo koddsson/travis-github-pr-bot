@@ -3,9 +3,9 @@ python:
 - '2.7'
 - '3.4'
 install:
-- pip install -r travis-bot/requirements.txt
+- pip install -r travis_bot/requirements.txt
 script:
-- flake8 . | ./travis-bot/travis-bot.py
+- flake8 . | ./travis_bot/travis_bot.py
 env:
   global:
   - TRAVIS_BOT_GITHUB_TOKEN=cf451704f2f1d2b1701a7aca7849ce2f8debb09c
