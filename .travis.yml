@@ -13,7 +13,8 @@ deploy:
   provider: pypi
   user: koddsson
   password:
-    secure: Xnu0eFvD6l4A7l4fDx988BPC6GwTd5a+m3mOnI+I0QQo3+OwY9scTzxVXsR98vbcaNv2f3+c3YbyO6o8lhOlqGFpzkLDQYBMzhOPTML4H231PZYAltTLCdpGR4ZOIL82tNZZuE3EgPcM70e2xveqyL3edUhCUkXa3UKmz2JLaTM=
+    secure: dR3Cl+jhIcgZ9zMrT/xMOT5SEuDYjz02DSrMRrrZwnL9wBuljYAXYZDHkIAGpw1TA1TGdE+S0l0EzhTCNEbryl8XKqORlrcmn0WLKy+V9RhwhyaB3NSVz26CoOOsfk/v9zc7Nxsi5gNeWn/7mMESR6CnS3eA14wf+bBPJBGDsVQ=
   on:
     tags: true
     repo: koddsson/travis-github-pr-bot
+    all_branches: true
