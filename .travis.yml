@@ -1,0 +1,19 @@
+language: python
+python:
+- '2.7'
+- '3.4'
+install:
+- pip install -r requirements.txt
+script:
+- flake8 . | ./comment-on-pr.py
+env:
+  global:
+  - TRAVIS_BOT_GITHUB_TOKEN=cf451704f2f1d2b1701a7aca7849ce2f8debb09c
+deploy:
+  provider: pypi
+  user: koddsson
+  password:
+    secure: CZR30T94L5wR7TkaEHassLfNX0wspfl3use7yVeIxU3m2dWCyMa0zmh/ZRT7g/RD2ZoNEsO4KcnwS5gE0CdUbDU/7b/FleBzL5BfZWpJyP+QbQ+30xQIPJpBXM7XfSte+LfplQhz9ygbG2GmlB0fOL3YL85RxS9lqdW/GEKNL3s=
+  on:
+    tags: true
+    repo: koddsson/travis-github-pr-bot
