@@ -35,8 +35,9 @@ if __name__ == '__main__':
     PR_NUMBER = os.environ.get('TRAVIS_PULL_REQUEST')
     REPO_SLUG = os.environ.get('TRAVIS_REPO_SLUG')
     TOKEN = os.environ.get('TRAVIS_BOT_GITHUB_TOKEN')
+    MESSAGE = os.environ.get('TRAVIS_BOT_NO_RESULTS_MSG', None)
 
-    results = sys.stdin.read()
+    results = sys.stdin.read().strip()
     comment = (
         """
 PEP8 results!
@@ -45,7 +46,10 @@ PEP8 results!
 ```
         """).format(flake_results=results)
 
-    if all([PR_NUMBER, REPO_SLUG, TOKEN, results.strip()]):
-        comment_on_pull_request(PR_NUMBER, REPO_SLUG, TOKEN, comment)
+    if all([PR_NUMBER, REPO_SLUG, TOKEN]):
+        if results:
+            comment_on_pull_request(PR_NUMBER, REPO_SLUG, TOKEN, comment)
+        elif MESSAGE:
+            comment_on_pull_request(PR_NUMBER, REPO_SLUG, TOKEN, MESSAGE)
     else:
         print('Not all neccesery variables are present')
