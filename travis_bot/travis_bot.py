@@ -19,11 +19,13 @@ import sys
 import json
 import requests
 
+GITHUB_API_URL = 'https://api.github.com'
+
 
 def comment_on_pull_request(pr_number, slug, token, comment):
     """ Comment message on a given GitHub pull request. """
-    url = 'https://api.github.com/repos/{slug}/issues/{number}/comments'.format(
-        slug=slug, number=pr_number)
+    url = '{api_url}/repos/{slug}/issues/{number}/comments'.format(
+        api_url=GITHUB_API_URL, slug=slug, number=pr_number)
     response = requests.post(url, data=json.dumps({'body': comment}),
                              headers={'Authorization': 'token ' + token})
     return response.json()

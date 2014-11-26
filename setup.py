@@ -7,7 +7,8 @@ setup(
     author='koddsson',
     author_email='koddsson@gmail.com',
     url='https://github.com/koddsson/travis-github-pr-bot',
-    download_url='https://github.com/koddsson/travis-github-pr-bot/tarball/0.1.1',
+    download_url=(
+        'https://github.com/koddsson/travis-github-pr-bot/tarball/0.1.1'),
     keywords=['travis', 'bot', 'github'],
     classifiers=[],
     scripts=['travis_bot/travis_bot.py'],
