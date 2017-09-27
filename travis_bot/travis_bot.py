@@ -50,7 +50,7 @@ PEP8 results!
         """).format(flake_results=results)
 
     if all([PR_NUMBER, REPO_SLUG, TOKEN]):
-        if PR_NUMER == "false":
+        if PR_NUMBER == "false":
             print("TRAVIS_PULL_REQUEST is set to 'false'. " +
                   "Make sure you run travis_bot.py on a pull request build.")
             sys.exit(0)
