@@ -3,13 +3,16 @@
 Comments stdin to the GitHub PR that triggered the travis build.
 
 Usage:
-    flake8 | python comment-on-pr.py
+    flake8 | python travis_bot.py
 
 Notes:
     The following enviromental variables need to be set:
     - TRAVIS_PULL_REQUEST
     - TRAVIS_REPO_SLUG
     - TRAVIS_BOT_GITHUB_TOKEN
+
+    Moreover, TRAVIS_PULL_REQUEST needs to be set to the pull request's number
+    and not 'false', which happens when a build is not a PR build.
 """
 
 from __future__ import print_function
@@ -47,6 +50,11 @@ PEP8 results!
         """).format(flake_results=results)
 
     if all([PR_NUMBER, REPO_SLUG, TOKEN]):
+        if PR_NUMER == "false":
+            print("TRAVIS_PULL_REQUEST is set to 'false'. " +
+                  "Make sure you run travis_bot.py on a pull request build.")
+            sys.exit(0)
+
         if results:
             comment_on_pull_request(PR_NUMBER, REPO_SLUG, TOKEN, comment)
         elif MESSAGE:
