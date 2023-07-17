@@ -1,3 +1,5 @@
+## ⚠️ This repo is now deprecated ⚠️
+
 [![Build Status](https://travis-ci.org/koddsson/travis-github-pr-bot.svg?branch=master)](https://travis-ci.org/koddsson/travis-github-pr-bot)
 
 A pretty simple python script that will get output from `stdin` and comment
